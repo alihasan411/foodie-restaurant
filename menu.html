@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Restaurant Menu</title>
+
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+ <!-- NAVBAR -->
+
+<nav class="navbar">
+
+  <h1 class="logo">Foodie</h1>
+
+  <div class="nav-right">
+
+    <button id="theme-btn">
+      🌙
+    </button>
+
+    <div class="cart-icon">
+      🛒 <span id="cart-count">0</span>
+    </div>
+
+    <div class="menu-toggle" id="menu-toggle">
+      ☰
+    </div>
+
+  </div>
+
+  <ul class="nav-links" id="nav-links">
+
+    <li><a href="index.html">Home</a></li>
+
+<li><a href="menu.html" class="active">Menu</a></li>
+
+    <li><a href="index.html#about">About</a></li>
+
+    <li><a href="index.html#contact">Contact</a></li>
+
+  </ul>
+
+</nav>
+
+
+<!-- FOOD SLIDER -->
+
+<section class="menu-food-slider">
+
+<div class="menu-slides">
+
+<img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=1200&auto=format&fit=crop">
+
+<img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=1200&auto=format&fit=crop">
+
+<img src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1200&auto=format&fit=crop">
+
+</div>
+
+</section>
+
+
+  <!-- MENU -->
+
+  <section class="menu-page hidden">
+    
+    
+    <!-- FILTER BUTTONS -->
+
+<div class="filter-buttons">
+
+  <button onclick="filterItems('all')">All</button>
+
+  <button onclick="filterItems('pizza')">Pizza</button>
+
+  <button onclick="filterItems('burger')">Burger</button>
+
+  <button onclick="filterItems('pasta')">Pasta</button>
+  
+  <button onclick="filterItems('steak')">Steak</button>
+  
+
+</div>
+    
+    <!-- SEARCH BAR -->
+
+<div class="search-box">
+
+  <input 
+    type="text" 
+    id="search-input"
+    placeholder="Search Food..."
+  >
+
+</div>
+    
+
+    <h2>Our Delicious Menu</h2>
+
+    <div class="menu-container">
+
+      <div class="menu-card reveal pizza"
+onclick="openPopup(
+'Cheese Pizza',
+'$12',
+'https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=1200&auto=format&fit=crop',
+'Delicious cheesy pizza with fresh toppings.'
+)">
+
+        <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=1200&auto=format&fit=crop">
+
+        <h3>Cheese Pizza</h3>
+        <div class="rating">
+  ⭐⭐⭐⭐⭐
+</div>
+
+        <p>$12</p>
+
+        <button>Order Now</button>
+
+      </div>
+
+    <div class="menu-card reveal burger"
+onclick="openPopup(
+'Zinger Burger',
+'$10',
+'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=1200&auto=format&fit=crop',
+'Juicy crispy zinger burger with spicy sauce.'
+)">
+
+        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=1200&auto=format&fit=crop">
+
+        <h3>Zinger Burger</h3>
+        <div class="rating">
+  ⭐⭐⭐⭐⭐
+</div>
+
+        <p>$10</p>
+
+        <button>Order Now</button>
+
+      </div>
+
+     <div class="menu-card reveal pasta"
+onclick="openPopup(
+'Creamy Pasta',
+'$15',
+'https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1200&auto=format&fit=crop',
+'Creamy white sauce pasta full of flavor.'
+)">
+
+        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1200&auto=format&fit=crop">
+
+        <h3>Creamy Pasta</h3>
+        <div class="rating">
+  ⭐⭐⭐⭐⭐
+</div>
+
+        <p>$15</p>
+
+        <button>Order Now</button>
+
+      </div>
+
+    <div class="menu-card reveal steak"
+onclick="openPopup(
+'BBQ Steak',
+'$20',
+'https://images.unsplash.com/photo-1600891964092-4316c288032e?q=80&w=1200&auto=format&fit=crop',
+'Tender BBQ steak grilled to perfection.'
+)">
+
+        <img src="https://images.unsplash.com/photo-1600891964092-4316c288032e?q=80&w=1200&auto=format&fit=crop">
+
+        <h3>BBQ Steak</h3>
+        <div class="rating">
+  ⭐⭐⭐⭐⭐
+</div>
+
+        <p>$20</p>
+
+        <button>Order Now</button>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  
+  
+  
+  
+  <!-- CART POPUP -->
+
+<div class="cart-popup" id="cart-popup">
+
+  <h2>Your Cart</h2>
+
+  <div id="cart-items"></div>
+
+  <h3>Total: $<span id="total-price">0</span></h3>
+
+  <button class="checkout-btn">
+    Checkout
+  </button>
+  
+  <form class="checkout-form" id="checkout-form">
+
+  <input type="text" placeholder="Your Name" required>
+
+  <input type="tel" placeholder="Phone Number" required>
+
+  <textarea placeholder="Your Address" required></textarea>
+
+  <button type="submit">
+    Place Order
+  </button>
+
+</form>
+  
+
+</div>
+  
+  
+  <!-- FOOD POPUP -->
+
+<div class="food-popup" id="food-popup">
+
+  <div class="popup-content">
+
+    <span class="close-popup" onclick="closePopup()">
+      ✖
+    </span>
+
+    <img id="popup-img">
+
+    <h2 id="popup-title"></h2>
+
+    <h3 id="popup-price"></h3>
+
+    <p id="popup-desc"></p>
+
+    <button class="popup-order-btn">
+      Order Now
+    </button>
+
+  </div>
+
+</div>
+  
+  
+  <!-- WHATSAPP BUTTON -->
+
+<a 
+href="https://wa.me/923001234567" 
+class="whatsapp-btn"
+target="_blank"
+>
+
+💬
+
+</a>
+
+  
+  
+  
+  <script src="script.js"></script>
+
+
+
+</body>
+
+</html>
